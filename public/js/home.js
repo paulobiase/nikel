@@ -1,7 +1,9 @@
 const myModal = new bootstrap.Modal("#transaction-modal");
 let logged = sessionStorage.getItem("logged");
 const session = localStorage.getItem("session");
-
+let cashIn = [];
+let cashOut = [];
+let total = [];
 let data = {
     transactions: []
 };
@@ -113,7 +115,7 @@ function getCashOut() {
 
     if(cashOut.length) {
         let cashInHtml = ``;
-        let limite = 0;
+        let limit = 0;
     
         if(cashIn.length > 5) {
         limit = 5;
@@ -125,7 +127,7 @@ function getCashOut() {
             cashInHtml +=`
             <div class="row mb-4">
             <div class="col-12">
-                <h3 class="fs-2">${cashIn[index].value.toFixed(2)}</h3>
+                <h3 class="fs-2">R$ ${cashIn[index].value.toFixed(2)}</h3>
                 <div class="container p-0">
                  <div class="row">
                      <div class="col-12 col-md-8">
@@ -150,13 +152,11 @@ function getTotal() {
     let total = 0;
 
     transactions.forEach((item) => {
-        if(item.type === "1") {
             if(item.type === "1") {
                 total += item.value;
             } else {
                 total -= item.value;
             }
-        }
     });
     
     document.getElementById("total").innerHTML = `R$ ${total.toFixed(2)}`;

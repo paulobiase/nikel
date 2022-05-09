@@ -46,7 +46,7 @@ function checkLogged() {
     }
 
     if(!logged) {
-        window.location.href = "index-html";
+        window.location.href = "index.html";
         return;
     }
 
@@ -70,24 +70,23 @@ function logout() {
 function getCashIn() {
     const transactions = data.transactions;
 
-    const getCashIn = transactions.filter((item) => item.type === "1");
+    const CashIn = transactions.filter((item) => item.type === "1");
 
-    if (getCashIn.length) {
+    if (cashIn.length) {
         let cashInHtml = ``;
-        let limite = 0;
+        let limit = 0;
     
-
-        if (cash.length > 5) { 
-        limit = 5;
+        if (cashIn.length > 5) { 
+            limit = 5;
         }   else {
-        limit= cashIn.length;
+            limit = cashIn.length;
         }
     
        for (let index = 0; index < limit; index++) {
             cashInHtml +=`
             <div class="row mb-4">
             <div class="col-12">
-                <h3 class="fs-2">${cashIn[index].value.toFixed(2)}</h3>
+                <h3 class="fs-2">R$ ${cashIn[index].value.toFixed(2)}</h3>
                 <div class="container p-0">
                  <div class="row">
                      <div class="col-12 col-md-8">
@@ -110,17 +109,16 @@ function getCashIn() {
 function getCashOut() {
     const transactions = data.transactions;
 
-    const getCashIn = transactions.filter((item) => item.type === "2");
+    const cashIn = transactions.filter((item) => item.type === "2");
 
-    if(getCashIn.length) {
+    if(cashOut.length) {
         let cashInHtml = ``;
         let limite = 0;
     
-
-        if(cash.length > 5) {
+        if(cashIn.length > 5) {
         limit = 5;
         }   else {
-        limit= cashIn.length;
+        limit = cashIn.length;
         }
     
        for (let index = 0; index < limit; index++) {
@@ -160,6 +158,7 @@ function getTotal() {
             }
         }
     });
+    
     document.getElementById("total").innerHTML = `R$ ${total.toFixed(2)}`;
 }
 

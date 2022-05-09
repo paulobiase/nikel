@@ -72,7 +72,7 @@ function checkLogged() {
     if(logged) {
         saveSession(logged, session);
 
-        window.location.href = "home-html";
+        window.location.href = "home.html";
     }
 }
 

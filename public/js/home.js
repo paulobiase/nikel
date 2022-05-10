@@ -71,7 +71,7 @@ function logout() {
 function getCashIn() {
     const transactions = data.transactions;
 
-    const cashin = transactions.filter((item) => item.type === "1");
+    const cashIn = transactions.filter((item) => item.type === "1");
 
     if (cashIn.length) {
         let cashInHtml = ``;
@@ -112,7 +112,7 @@ function getCashOut() {
 
     const cashIn = transactions.filter((item) => item.type === "2");
 
-    if(cashOut.length) {
+    if(cashIn.length) {
         let cashInHtml = ``;
         let limit = 0;
     

@@ -71,7 +71,7 @@ function logout() {
 function getCashIn() {
     const transactions = data.transactions;
 
-    const CashIn = transactions.filter((item) => item.type === "1");
+    const cashin = transactions.filter((item) => item.type === "1");
 
     if (cashIn.length) {
         let cashInHtml = ``;

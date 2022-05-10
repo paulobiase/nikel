@@ -3,7 +3,6 @@ let logged = sessionStorage.getItem("logged");
 const session = localStorage.getItem("session");
 let cashIn = [];
 let cashOut = [];
-let total = [];
 let data = {
     transactions: []
 };
